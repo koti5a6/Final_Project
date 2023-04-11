@@ -1,0 +1,59 @@
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Transfer Funds</h1>
+                </div>
+                <form #addbenform="ngForm" (ngSubmit)="addBen()">
+                    
+                    <div class="form-group">
+                        <label for="id">Name</label>
+                        <input type="text" class="form-control" placeholder=" Enter RecipientFull Name" name="name" required [(ngModel)]="ben.name" #name="ngModel"
+                        [class.is-invalid]="name.invalid && name.touched"> 
+                        <small class="text-danger" [class.d-none]="name.valid || name.untouched">*Customer Name is Required!</small>
+                    </div><br>
+                    
+                    <div class="form-group">
+                        <label for="id">Account Number</label>
+                        <input type="text" class="form-control" placeholder="Enter Recipient Number" name="account_no" required [(ngModel)]="ben.accountNo" #accountNo="ngModel"
+                        [class.is-invalid]="accountNo.invalid && accountNo.touched"> 
+                        <small class="text-danger" [class.d-none]="accountNo.valid || accountNo.untouched">*Account Number is Required!</small> 
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Mobile Number </label>
+                        <input type="text" class="form-control" placeholder="Enter your Mobile Number" name="mobile_no" required [(ngModel)]="ben.phoneNo" #phoneNo="ngModel"
+                        [class.is-invalid]="phoneNo.invalid && phoneNo.touched"> 
+                        <small class="text-danger" [class.d-none]="phoneNo.valid || phoneNo.untouched">*Mobile Number is Required!</small>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Branch Id </label>
+                        <input type="text" class="form-control" placeholder="Enter Branch" name="ifsc" required [(ngModel)]="ben.branchId" #branchId="ngModel"
+                        [class.is-invalid]="branchId.invalid && branchId.touched"> 
+                        <small class="text-danger" [class.d-none]="branchId.valid || branchId.untouched">*BranchId is Required!</small>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">IFSC code </label>
+                        <input type="text" class="form-control" placeholder="Enter IFSC code" name="ifsc" required [(ngModel)]="ben.ifcs" #ifcs="ngModel"
+                        [class.is-invalid]="ifcs.invalid && ifcs.touched"> 
+                        <small class="text-danger" [class.d-none]="ifcs.valid || ifcs.untouched">*IFSC code is Required!</small>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Amount to be Transferred</label>
+                        <input type="text" class="form-control" placeholder="Enter Amount here" name="amount" required [(ngModel)]="ben.amount" #amount="ngModel"
+                        [class.is-invalid]="amount.invalid && amount.touched"> 
+                        <small class="text-danger" [class.d-none]="amount.valid || amount.untouched">*Amount  is Required!</small>
+                    </div><br>
+                   
+                    <button  [disabled]="addbenform.form.invalid" type="submit" class="btn btn-success" >Transfer Funds</button>&nbsp;
+                    <button [routerLink]="['/home']"> Back</button>           
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

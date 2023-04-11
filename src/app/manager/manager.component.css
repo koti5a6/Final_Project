@@ -1,0 +1,32 @@
+.content{
+    text-align: center;
+}
+
+.cardDetails{
+    padding-left: 20px;
+        min-height: 600px;
+        max-width: 700px;
+        background-color:#e7e7e7;
+       position: relative;
+       display:block;
+       margin-left: auto;
+       margin-right: auto;
+}
+
+.sub-headers{
+font-size: 20px;
+padding-top: 10px;
+}
+.hidden {
+    list-style-type: none;
+   }
+.container{
+    padding: 40px 20px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  .text-center {
+    text-align: center;
+  }

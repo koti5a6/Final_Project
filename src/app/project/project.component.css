@@ -1,0 +1,93 @@
+.container{
+  width: 150%;
+  height: 100%;
+  
+}
+.content{
+  
+  padding: 3px 7px;
+  position: relative;
+  overflow-y: auto;
+}
+
+ *{
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  height: 200vh;
+} 
+header{
+    margin-top: 100px;
+}
+
+nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: auto;
+  align-items: center;
+  background: #e7e7e7;
+  transition: all 0.3s;
+  overflow: auto;
+}
+
+nav a {
+  width: 250px;
+   /* margin-right: 200px;  */
+  font-family: Pacifico;
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;
+  color: #404040
+}
+.home {
+  width: 200px !important; 
+  padding-left: 20px !important;
+  margin-right: auto !important;
+  font-size: 2em;
+}
+
+.card{
+  border: none;
+  width: 500px;
+  padding: 40px;
+  position:absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%,-50%); 
+  background: hsla(205, 46%, 30%, 1);
+  background: linear-gradient(90deg, hsla(205, 46%, 30%, 1) 0%, hsla(205, 29%, 36%, 1) 100%);
+}
+.card h1,h6{
+  color: #fff;
+}
+label{
+  color: #fff;
+}
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+.bg {
+/* The image used */
+background-image: url("https://slideplayer.com/11405583/42/images/slide_1.jpg");
+
+/* Full height */
+height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+font-size: 120%;
+}
+
+
+.cus{
+  text-align: center;
+}

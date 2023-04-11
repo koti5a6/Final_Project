@@ -1,0 +1,26 @@
+<br>
+<br>
+<br>
+<html>
+  <body>
+<div class="login-page">
+  <div class="login-page label">
+  <h1 style="text-align:center; color: white;" >Login</h1>
+  <form (ngSubmit)="adminLogin()">
+    <!--<small class="text-danger">{{msg}}</small>-->
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">AdminID</label>
+      <input type="text" [(ngModel)]="admin.adminId" class="form-control" id="userID" name="adminId" required #adminId="ngModel"
+    [class.is-invalid]="adminId.invalid && adminId.touched" >
+    <small [class.d-none]="adminId.valid || adminId.untouched">AdminId is required field</small>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Password</label>
+      <input type="password" [(ngModel)]="admin.password" class="form-control" id="password" name="password" required #password="ngModel"
+      [class.is-invalid]="password.invalid && password.touched" >
+      <small [class.d-none]="password.valid || password.untouched">Password is required field</small>  
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+ <div class="content">
+<form #Form="ngForm" (ngSubmit)="onSubmit(Form)">
+    <div> 
+  <mat-form-field >
+    <mat-label>Account Number</mat-label>
+    <input matInput ngModel placeholder="Enter Account Number" name="id" required>
+  </mat-form-field>
+</div>
+  <button mat-button color="success"  class="btn btn-success" [disabled]="!Form.valid">
+    OK
+  </button><br><br>
+  <div class="text-center">
+    <button [routerLink]="['/home']"> Back</button></div>
+</form>
+</div>
+
+<div *ngIf="customer" class="container">
+    <mat-card class="cardDetails">
+        <div> 
+         <span class="sub-headers"> Customer Details</span><br>
+         <ul class="hidden">
+         <li> <b>Customer Id </b>: {{customer.id}}</li>
+         <li> <b>Name </b>: {{customer.name}}</li>
+         <li> <b>email </b>: {{customer.email}}</li>
+         <li> <b>Account no</b> : {{customer.accountNo}}</li>
+         <li> <b>Balance </b>: {{account.balance}}</li>
+         <li> <b>IFSC </b>: {{bank.ifsc}}</li>
+        </ul>
+        </div>
+
+        <div>
+        <span  class="sub-headers"><h2> Transaction info</h2></span>
+        <table >
+          <tr>
+          <th>Transaction Id</th>
+          <th>Account No</th>
+          <th>Amount</th>
+          <th>Transaction Account no</th>
+          <th>Transaction Type</th>
+          <th>Date</th>
+          <th>comments</th></tr>
+          <tr *ngFor="let trans of transaction">
+            <td>{{trans.transactionId}}</td>
+            <td>{{trans.accountNo}}</td>
+            <td>{{trans.amount}}</td> 
+            <td>{{trans.transactionAccountNo}}</td>
+            <td>{{trans.transactionType}}</td> 
+            <td>{{trans.transactionDate}}</td>
+            <td>{{trans.comments}}</td>  
+          </tr>
+        </table>
+        
+      </div>
+    </mat-card>
+</div> 
+
+
+
+
+
+<!-- <div class="content">
+  <form #Form="ngForm" (ngSubmit)="onSubmit(Form)">
+      <div class="form-group">
+          <label>Customer Id</label><br>
+          <input type="text" class="form-control" placeholder="enter customer id" required name="id">
+       </div>
+       <button [disabled]="!Form.valid">
+          OK
+       </button>
+  </form>
+</div>
+
+<div *ngIf="customer" class="container">
+  <div class="cardDetails">
+      <div> 
+       <span class="sub-headers"> Customer Details</span><br>
+       <ul class="hidden">
+       <li> <b>Customer Id </b>: {{customer.id}}</li>
+       <li> <b>Name </b>: {{customer.name}}</li>
+       <li> <b>email </b>: {{customer.email}}</li>
+       <li> <b>Account no</b> : {{customer.accountNo}}</li>
+       <li> <b>Balance </b>: {{account.balance}}</li>
+       <li> <b>IFSC </b>: {{bank.ifsc}}</li>
+      </ul>
+      </div>
+
+      <div>
+      <span  class="sub-headers"><h2> Transaction info</h2></span>
+      <table >
+        <tr>
+        <th>Transaction Id</th>
+        <th>Account No</th>
+        <th>Amount</th>
+        <th>Transaction Account no</th>
+        <th>Transaction Type</th>
+        <th>Date</th>
+        <th>comments</th></tr>
+        <tr *ngFor="let trans of transaction">
+          <td>{{trans.transactionId}}</td>
+          <td>{{trans.accountNo}}</td>
+          <td>{{trans.amount}}</td> 
+          <td>{{trans.transactionAccountNo}}</td>
+          <td>{{trans.transactionType}}</td> 
+          <td>{{trans.transactionDate}}</td>
+          <td>{{trans.comments}}</td>  
+        </tr>
+      </table>
+      
+    </div>
+  </div>
+</div> -->

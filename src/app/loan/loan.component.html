@@ -1,0 +1,121 @@
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Application for Loan</h1>
+                </div>
+                <form #applyloanform="ngForm" (ngSubmit)="applyLoan()">
+                    
+                    <div class="form-group">
+                        <label for="id">Customer Name</label>
+                        <input type="text" class="form-control" placeholder=" Enter Your Full Name" name="name" required [(ngModel)]="loan.loanName" #loanName="ngModel"
+                        [class.is-invalid]="loanName.invalid && loanName.touched"> 
+                        <small class="text-danger" [class.d-none]="loanName.valid || loanName.untouched">*Customer Name is Required!</small>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Email ID</label>
+                         <input type="text" class="form-control" placeholder="Enter Your Email ID" name="email"  [(ngModel)]="loan.loanEmail" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" #loanEmail="ngModel" 
+                         [class.is-invalid]="loanEmail.invalid && loanEmail.touched" >
+                         <div *ngIf="loanEmail.errors && (loanEmail.invalid && loanEmail.touched)">
+                           <small class="text-danger" *ngIf="loanEmail.errors?.['required']">*Email Id Required</small>
+                           <small class="text-danger" *ngIf="loanEmail.errors?.['pattern']">*Enter valid Email</small></div>
+                             <!-- #loanName="ngModel"
+                        [class.is-invalid]="loanName.invalid && loanName.touched"> 
+                        <small class="text-danger" [class.d-none]="loanName.valid || loanName.untouched">*Customer Name is Required!</small> --> 
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Account Number</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Account Number" name="account_no" required [(ngModel)]="loan.loanAccountNo" #loanAccountNo="ngModel"
+                        [class.is-invalid]="loanAccountNo.invalid && loanAccountNo.touched"> 
+                        <small class="text-danger" [class.d-none]="loanAccountNo.valid || loanAccountNo.untouched">*Account Number is Required!</small> 
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Mobile Number </label>
+                        <input type="text" class="form-control" placeholder="Enter your Mobile Number" name="mobile_no" required [(ngModel)]="loan.loanPhoneNo" #loanPhoneNo="ngModel"
+                        [class.is-invalid]="loanPhoneNo.invalid && loanPhoneNo.touched"> 
+                        <small class="text-danger" [class.d-none]="loanPhoneNo.valid || loanPhoneNo.untouched">*Mobile Number is Required!</small>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Aadhar Number</label>
+                        <input type="text" class="form-control" placeholder="Enter your Aadhar Number" name="aadhar_no" required [(ngModel)]="loan.loanAadharNo" #loanAadharNo="ngModel"
+                        [class.is-invalid]="loanAadharNo.invalid && loanAadharNo.touched"> 
+                        <small class="text-danger" [class.d-none]="loanAadharNo.valid || loanAadharNo.untouched">*Aadhaar Number is Required!</small> 
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">PAN Number</label>
+                        <input type="text" class="form-control" placeholder="Enter your PAN Number" name="pan_no" required [(ngModel)]="loan.loanPanNo" #loanPanNo="ngModel"
+                        [class.is-invalid]="loanPanNo.invalid && loanPanNo.touched"> 
+                        <small class="text-danger" [class.d-none]="loanPanNo.valid || loanPanNo.untouched">*PAN Number is Required!</small>
+                    </div><br>
+
+
+                    <!-- <div class="form-group">
+                        <label for="id">Loan Type</label>
+                        <input type="text" class="form-control" placeholder="Enter Loan Type" name="loan_type" required [(ngModel)]="loan.loanType" #loanType="ngModel"
+                        [class.is-invalid]="loanType.invalid && loanType.touched"> 
+                        <small class="text-danger" [class.d-none]="loanType.valid || loanType.untouched">*Loan Type is Required!</small>
+                    </div><br> -->
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Loan Type</label>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="loanType" id="goldLoan" value="goldLoan" [(ngModel)]="loan.loanType">
+                          <label class="form-check-label" for="exampleRadios1">
+                            Gold Loan
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="LoanType" id="EducationLoan" value="EducationLoan" [(ngModel)]= "loan.loanType">
+                          <label class="form-check-label" for="exampleRadios2">
+                            Education Loan
+                          </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="LoanType" id="VechileLoan" value="VechileLoan" [(ngModel)]= "loan.loanType">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Vehicle Loan
+                            </label>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="LoanType" id="HomeLoan" value="HomeLoan" [(ngModel)]= "loan.loanType">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Home Loan
+                            </label>
+                          </div>
+                      </div>
+                    
+                    <div class="form-group">
+                        <label for="id">Amount Required</label>
+                        <input type="text" class="form-control" placeholder="Enter Amount Required" name="amount" required [(ngModel)]="loan.loanAmount" #loanAmount="ngModel"
+                        [class.is-invalid]="loanAmount.invalid && loanAmount.touched"> 
+                        <small class="text-danger" [class.d-none]="loanAmount.valid || loanAmount.untouched">*Amount is Required!</small> 
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Annual Income</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Annual Income" name="annual_income" required [(ngModel)]="loan.loanAnnualIncome" #loanAnnualIncome="ngModel"
+                        [class.is-invalid]="loanAnnualIncome.invalid && loanAnnualIncome.touched"> 
+                        <small class="text-danger" [class.d-none]="loanAnnualIncome.valid || loanAnnualIncome.untouched">*Annual Income is Required!</small>
+                    </div><br>
+                    
+                    <div class="form-group">
+                        <label for="id">Address </label>
+                        <input type="text" class="form-control" placeholder="Enter Your Address" name="address" required [(ngModel)]="loan.address" #address="ngModel"
+                        [class.is-invalid]="address.invalid && address.touched"> 
+                        <small class="text-danger" [class.d-none]="address.valid || address.untouched">*Address is Required!</small>
+                    </div><br>            
+
+                    <button  [disabled]="applyloanform.form.invalid" type="submit" class="btn btn-success" >Apply For Loan</button>&nbsp;
+                    <button [routerLink]="['/home']"> Back</button>                 
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

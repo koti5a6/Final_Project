@@ -1,0 +1,78 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Application for Credit card</h1>
+                </div>
+                <form #applycardform="ngForm" (ngSubmit)="applycard()">
+                    
+                    <div class="form-group" >
+                        <label for="id" >Customer Name</label>
+                        <input type="text" class="form-control" id="validationTextarea" placeholder=" Enter Your Full Name" name="name" required [(ngModel)]="card.name"  #name="ngModel"
+                        [class.is-invalid]="name.invalid && name.touched"> 
+                        <small class="text-danger" [class.d-none]="name.valid || name.untouched">*Name is Required!</small >
+                        
+                         
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Email ID</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Email ID" name="email"  [(ngModel)]="card.email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" #email="ngModel" 
+                        [class.is-invalid]="email.invalid && email.touched" >
+                        <div *ngIf="email.errors && (email.invalid && email.touched)">
+                          <small class="text-danger" *ngIf="email.errors?.['required']">*Email Id Required</small>
+                          <small class="text-danger" *ngIf="email.errors?.['pattern']">*Enter valid Email</small></div>
+                        
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Account Number</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Account Number" name="account_no" required [(ngModel)]="card.accountNo" #accountNo="ngModel"
+                        [class.is-invalid]="accountNo.invalid && accountNo.touched"> 
+                        <small class="text-danger" [class.d-none]="accountNo.valid || accountNo.untouched">*Account Number is Required!</small  >
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Mobile Number </label>
+                        <input type="text" class="form-control" placeholder="Enter your Mobile Number" name="mobile_no" required [(ngModel)]="card.phoneNo" #phoneNo="ngModel"
+                        [class.is-invalid]="phoneNo.invalid && phoneNo.touched"> 
+                        <small class="text-danger" [class.d-none]="phoneNo.valid || phoneNo.untouched">*Phone Number is Required!</small >
+                    </div><br>
+                    
+                    <div class="form-group">
+                        <label for="id">PAN Number</label>
+                        <input type="text" class="form-control" placeholder="Enter your PAN Number" name="pan_no" required [(ngModel)]="card.panNo" #panNo="ngModel"
+                        [class.is-invalid]="panNo.invalid && panNo.touched"> 
+                        <small class="text-danger" [class.d-none]="panNo.valid || panNo.untouched">*PAN Number is Required!</small >
+                    </div><br>
+
+
+                    <div class="form-group">
+                        <label for="id">CreditCard Type</label>
+                        <input type="text" class="form-control" placeholder="Enter Loan Type" name="loan_type" required [(ngModel)]="card.creditType" #creditType="ngModel"
+                        [class.is-invalid]="creditType.invalid && creditType.touched"> 
+                        <small class="text-danger" [class.d-none]="creditType.valid || creditType.untouched">*Credit Card Type is Required!</small >
+                    </div><br>
+                    
+                    <div class="form-group">
+                        <label for="id">Amount Required</label>
+                        <input type="text" class="form-control" placeholder="Enter Amount Required" name="amount" required [(ngModel)]="card.amount" #amount="ngModel"
+                        [class.is-invalid]="amount.invalid && amount.touched"> 
+                        <small class="text-danger" [class.d-none]="amount.valid || amount.untouched">*Amount is Required!</small >
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Annual Income</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Annual Income" name="annual_income" required [(ngModel)]="card.annualIncome" #annualIncome="ngModel"
+                        [class.is-invalid]="annualIncome.invalid && annualIncome.touched"> 
+                        <small class="text-danger" [class.d-none]="annualIncome.valid || annualIncome.untouched">*Annual  Income is Required!</small>
+                    </div><br>
+                    
+                   
+                    <button  [disabled] = "applycardform.form.invalid" type="submit" class="btn btn-success" >Apply For Card</button>&nbsp;
+                    <button [routerLink]="['/home']"> Back</button>               
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<h1>Loan Details</h1>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+     <ng-container matColumnDef="loanId">
+      <th mat-header-cell *matHeaderCellDef>Loan Id</th>
+      <td mat-cell *matCellDef="let element"> {{element.loanId}} </td>
+    </ng-container>
+   
+    <!-- Name Column -->
+     <ng-container matColumnDef="loanName">
+      <th mat-header-cell *matHeaderCellDef>Loan Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.loanName}} </td>
+    </ng-container> 
+  
+    <!-- Weight Column -->
+     <ng-container matColumnDef="loanEmail">
+      <th mat-header-cell *matHeaderCellDef> Loan Email</th>
+      <td mat-cell *matCellDef="let element"> {{element.loanEmail}} </td>
+    </ng-container> 
+  
+    <!-- Symbol Column -->
+     <ng-container matColumnDef="loanAccountNo">
+      <th mat-header-cell *matHeaderCellDef> Account number</th>
+      <td mat-cell *matCellDef="let element"> {{element.loanAccountNo}} </td>
+    </ng-container> 
+
+     <ng-container matColumnDef="loanPhoneNo">
+        <th mat-header-cell *matHeaderCellDef> Phone number</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanPhoneNo}} </td>
+      </ng-container> 
+
+       <ng-container matColumnDef="loanAadharNo">
+        <th mat-header-cell *matHeaderCellDef> Aadhar number</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanAadharNo}} </td>
+      </ng-container> 
+
+       <ng-container matColumnDef="loanPanNo">
+        <th mat-header-cell *matHeaderCellDef> Pan number</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanPanNo}} </td>
+      </ng-container> 
+
+       <ng-container matColumnDef="loanType">
+        <th mat-header-cell *matHeaderCellDef> Loan Type</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanType}} </td>
+      </ng-container> 
+
+       <ng-container matColumnDef="loanAmount">
+        <th mat-header-cell *matHeaderCellDef> Amount</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanAmount}} </td>
+      </ng-container> 
+
+       <ng-container matColumnDef="loanAnnualIncome">
+        <th mat-header-cell *matHeaderCellDef> Annual Income</th>
+        <td mat-cell *matCellDef="let element"> {{element.loanAnnualIncome}} </td>
+      </ng-container> 
+
+       <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address</th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container> 
+
+      
+       <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-raised-button (click)="approve(element)" >Approve</button>
+              
+              <button mat-raised-button (click)="reject(element)" >Reject</button>
+        </td>
+        
+    </ng-container> 
+    
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> 
+
+ <br><br>
+<div class="text-center">
+<button [routerLink]="['/admindash']"> Back</button></div>
+{{status | json}}
+  
+  
+
+
+<!-- <table mat-table [dataSource]="dataSource" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Loan Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">AccountNo</th>
+      <th scope="col">PhoneNo</th>
+      <th scope="col">AadharNo</th>
+      <th scope="col">PANNo</th>
+      <th scope="col">Type</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Annual Income</th>
+      <th scope="col">Address</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let element of dataSource">
+      <td>{{element.loanId}}</td>
+      <td>{{element.loanName}}</td>
+      <td>{{element.loanEmail}}</td>
+      <td>{{element.loanAccountNo}}</td>
+      <td>{{element.loanPhoneNo}}</td>
+      <td>{{element.loanAadharNo}}</td>
+      <td>{{element.loanPanNo}}</td>
+      <td>{{element.loanType}}</td>
+      <td>{{element.loanAmount}}</td>
+      <td>{{element.loanAnnualIncome}</td>
+      <td>{{element.address}</td>
+      <td>{{element.status}</td>
+      <td>
+
+        <button type="button" class="btn btn-outline-primary me-2" (click)="approve(element)" >Edit</button>
+        <button type="button" class="btn btn-outline-danger" (click)="reject(element)">Delete</button>
+      </td>
+      
+    </tr>
+  </tbody>
+
+
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
+
+<!-- {{status | json}} 
+
+ <br><br>
+  <div class="text-center">
+  <button [routerLink]="['/admindash']"> Back</button></div> -->
